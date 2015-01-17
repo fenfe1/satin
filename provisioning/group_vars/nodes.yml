@@ -1,0 +1,5 @@
+---
+# These variables override those defined by roles
+
+# Generic
+app_root: /app

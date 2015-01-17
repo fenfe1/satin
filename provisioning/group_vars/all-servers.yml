@@ -1,0 +1,5 @@
+---
+# These variables override those defined by roles
+
+project_hostname_base: "calcifer"  
+project_hostname_project: "lace"

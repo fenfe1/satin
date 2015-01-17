@@ -1,0 +1,7 @@
+.vagrant
+provisioning/roles/bootstrap
+provisioning/roles/core
+provisioning/roles/php
+/vendor/
+provisioning/roles/composer
+provisioning/public_keys/id_rsa.pub
