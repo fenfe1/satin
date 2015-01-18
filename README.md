@@ -10,7 +10,7 @@ Example implementation of the BAS People API (version 1).
 
 ### Requirements
 
-You will need to the following local software depending on the environment you wish to target:
+You will need the following local software depending on the environment you wish to target:
 
 #### All environments
 
@@ -70,9 +70,8 @@ To demo the People API methods use the provided demo script.
 
 ```shell
 $ ssh calcifer-satin-dev-node1
-$ cd /app
-
 $ cd /app/src
+
 $ php satin.php
 
 $ logout
