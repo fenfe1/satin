@@ -26,11 +26,17 @@ class PeopleAPI {
 
     private $tokenExpiry;
 
-    function __construct($username, $password)
+    private $storageDirectory;
+
+    function __construct($username, $password, $storageDirectory = null)
     {
         // Set credentials
         $this->username = $username;
         $this->password = $password;
+
+        // Set storage path
+        $this->storageDirectory = $storageDirectory;
+        $this->setStoragePath();
 
         // Create API client
         $this->client = new Client([
@@ -97,15 +103,52 @@ class PeopleAPI {
 
     private function storeToken()
     {
-        // TODO: Store token and token expiry to file
+        $fileName = 'api_token.json';
+        $filePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $fileContents = json_encode([
+            'token' => $this->token,
+            'token_expiry' => $this->tokenExpiry->timestamp
+        ]);
+
+        file_put_contents($filePath, $fileContents);
     }
 
     private function retrieveToken()
     {
-        // TODO: Retrieve token from file
-        // If token has expired return false even if token is set
+        $fileName = 'api_token.json';
+        $filePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $fileContents = file_get_contents($filePath);
 
-        return false;
+        $fileContents = json_decode($fileContents, $associativeArray = true);
+
+        // Set token and token expiry
+        $this->token = $fileContents['token'];
+        $this->tokenExpiry = Carbon::createFromTimeStampUTC($fileContents['token_expiry']);
+
+        if ($this->checkTokenIsValid() === false)
+        {
+            // Un-set token and token expiry as they're invalid
+            $this->token = null;
+            $this->tokenExpiry = null;
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private function setStoragePath()
+    {
+        if (isset($this->storageDirectory) == false)
+        {
+            // The 'storage' directory is located on the same level as the 'src' directory,
+            // we therefore want to go to the parent directory of the calling script (as it is in the 'src' directory),
+            // and then down into the 'storage' directory.
+
+            $scriptDirectory = preg_replace('~(\w)$~' , '$1' . DIRECTORY_SEPARATOR , realpath(getcwd()));
+            $scriptParentDirectory = preg_replace( '~[/\\\\][^/\\\\]*[/\\\\]$~' , DIRECTORY_SEPARATOR , $scriptDirectory);
+            $this->storageDirectory = $scriptParentDirectory . 'storage';
+        }
     }
 
     private function getToken()
@@ -196,5 +239,37 @@ class PeopleAPI {
         $data = $response->json();
 
         return ($data['data']);
+    }
+
+    public function getDisplayName($person)
+    {
+        $name = [
+            'title' => $person['name_title'],
+            'first' => $person['name_first'],
+            'middle' => $person['name_middle'],
+            'last' => $person['name_last']
+        ];
+
+        if (isset($name['middle']) === false)
+        {
+            unset($name['middle']);
+        }
+
+        if (isset($person['pref_name_title']))
+        {
+            $name['title'] = $person['pref_name_title'];
+        }
+        if (isset($person['pref_name_first']))
+        {
+            $name['first'] = $person['pref_name_first'];
+        }
+        if (isset($person['pref_name_last']))
+        {
+            $name['last'] = $person['pref_name_last'];
+        }
+
+        $name['title'] = $name['title'] . '.';
+
+        return implode(' ', $name);
     }
 }

@@ -6,3 +6,4 @@ provisioning/roles/php
 provisioning/roles/composer
 provisioning/public_keys/id_rsa.pub
 composer.lock
+storage/api_token.json
