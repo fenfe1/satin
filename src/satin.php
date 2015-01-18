@@ -27,9 +27,6 @@ if ($apiPassword !== null)
 $peopleAPI = new PeopleAPI($apiUsername, $apiPassword);
 
 echo "\n";
-echo "Welcome" . " \n";
-
-echo "\n";
 echo "Listing everyone in the database ..." . " \n";
 $everyone = $peopleAPI->getEveryone();
 foreach ($everyone as $person)
