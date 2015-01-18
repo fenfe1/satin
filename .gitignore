@@ -5,3 +5,4 @@ provisioning/roles/php
 /vendor/
 provisioning/roles/composer
 provisioning/public_keys/id_rsa.pub
+composer.lock

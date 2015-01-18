@@ -9,7 +9,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "~5.0",
+        "nesbot/Carbon": "~1.13"
+    },
     "autoload": {
         "psr-4": {
             "Satin\\": "src/Satin"
