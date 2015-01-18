@@ -1,8 +1,6 @@
 # Satin
 
-TODO: One line description.
-
-TODO: More detailed description.
+Example implementation of the BAS People API (version 1)
 
 ## TODO:
 
@@ -41,6 +39,8 @@ Host calcifer-*
 
 VMs are managed using Vagrant and configured by Ansible.
 
+#### Setup
+
 ```shell
 $ git clone git@github.com:fenfe1/satin.git
 $ satin/provisioning/local_setup.sh satin
@@ -51,6 +51,26 @@ $ vagrant up
 $ ssh calcifer-satin-dev-node1
 $ cd /app
 $ composer install
+
+$ logout
+```
+
+#### Usage
+
+Create a `.secret_credentials.json` file in `/` and populate with your API user account credentials.
+
+```json
+{
+    "username": "USERNAME",
+    "password": "PASSWORD"
+}
+```
+
+To demo the People API methods use the provided demo script.
+
+```shell
+$ ssh calcifer-satin-dev-node1
+$ cd /app
 
 $ cd /app/src
 $ php satin.php
