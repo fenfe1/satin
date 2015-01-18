@@ -15,7 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Satin\\": "src/Satin"
+            "Satin\\": "src/Satin",
+            "Antarctica\\": "src/Antarctica"
         }
     }
 }

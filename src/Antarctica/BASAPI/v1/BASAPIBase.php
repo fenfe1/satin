@@ -1,6 +1,6 @@
 <?php
 
-namespace Satin\BASAPI\v1;
+namespace Antarctica\BASAPI\v1;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -105,8 +105,7 @@ class BASAPIBase {
                 $data = $response->json();
                 if ($data['errors'][0]['type'] == 'authentication_failure')
                 {
-                    // TODO: Throw invalid credentials exception
-                    echo "Invalid credentials exception!" . " \n";
+                    echo "Invalid API credentials!" . " \n";
                     die();
                 }
             }
@@ -195,8 +194,7 @@ class BASAPIBase {
         }
 
         // Unable to provide a valid token
-        // TODO: Raise no valid token exception
-        echo "Unable to get valid token exception!" . " \n";
+        echo "Unable to get a valid token!" . " \n";
         die();
     }
 
