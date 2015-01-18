@@ -34,18 +34,17 @@ echo "Listing everyone in the database ..." . " \n";
 $everyone = $peopleAPI->getEveryone();
 foreach ($everyone as $person)
 {
-    echo "... [" . $person['id'] ."] " . $person['name_title'] . '. ' . $person['name_first'] . ' ' . $person['name_middle'] . ' ' . $person['name_last'] . " \n";
+    echo "... [" . $person['id'] ."] " . $peopleAPI->getDisplayName($person) . " \n";
 }
 
 echo "\n";
 echo "Showing details for 'eakf' ..." . " \n";
 $eakf = $peopleAPI->getPerson('eakf');
 
-var_dump([
-    'ID' => $eakf['id'],
-    'Name' => $eakf['name_title'] . '. ' . $eakf['name_first'] . ' ' . $eakf['name_middle'] . ' ' . $eakf['name_last'],
-    'Job Title' => $eakf['job_title']
-]);
+echo "... ID        : " . $eakf['id'] . " \n";
+echo "... Name      : " . $peopleAPI->getDisplayName($eakf) . " \n";
+echo "... Job Title : " . $eakf['job_title'] . " \n";
+
 // Misc functions
 function loadFromSecretFile()
 {
