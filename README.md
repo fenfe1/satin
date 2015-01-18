@@ -1,6 +1,6 @@
 # Satin
 
-Example implementation of the BAS People API (version 1)
+Example implementation of the BAS People API (version 1).
 
 ## TODO:
 
