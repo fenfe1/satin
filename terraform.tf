@@ -13,7 +13,7 @@ provider "digitalocean" {
 # 'calcifer-satin-prod-node1' resource
 
 module "calcifer-satin-prod-node1" {
-    source = "./droplet"
+    source = "github.com/fenfe1/terraform-module-droplet"
     hostname = "calcifer-satin-prod-node1"
     ssh_fingerprint = "${var.ssh_fingerprint}"
 }
