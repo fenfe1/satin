@@ -43,9 +43,9 @@ VMs are managed using Vagrant and configured by Ansible.
 
 ```shell
 $ git clone git@github.com:fenfe1/satin.git
-$ satin/provisioning/local_setup.sh satin
-
 $ cd satin
+
+$ provisioning/local-setup-bootstrap.sh
 $ vagrant up  ([1])
 
 $ ssh calcifer-satin-dev-node1

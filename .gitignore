@@ -8,3 +8,5 @@ provisioning/public_keys/id_rsa.pub
 composer.lock
 .secret_credentials.json
 storage/api_token.json
+provisioning/local-setup.sh
+provisioning/roles/bootstrap-vagrant
