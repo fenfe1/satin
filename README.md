@@ -16,13 +16,8 @@ You will need the following local software depending on the environment you wish
 
 * Mac OS X
 * [Ansible](http://www.ansible.com) `brew install ansible`
-
-
-  * [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion`
-  * [Vagrant](http://vagrantup.com) `brew cask install vagrant`
-  * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) and [Vagrant VMware](http://www.vagrantup.com/vmware) plugins `vagrant plugin install vagrant-hostmanager && vagrant plugin install vagrant-vmware-fusion`
-  * You have a private key `id_rsa` and public key `id_rsa.pub` in `~/.ssh/`
-  * You have an entry like [1] in your `~/.ssh/config`
+* You have a private key `id_rsa` and public key `id_rsa.pub` in `~/.ssh/`
+* You have an entry like [1] in your `~/.ssh/config`
 
 [1] SSH config entry
 
@@ -34,7 +29,12 @@ Host calcifer-*
     Port 22
 ```
 
-### Local/Development
+#### Development (local)
+
+* [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion`
+* [Vagrant](http://vagrantup.com) `brew cask install vagrant`
+* [Host manager](https://github.com/smdahlen/vagrant-hostmanager) and [Vagrant VMware](http://www.vagrantup.com/vmware) plugins `vagrant plugin install vagrant-hostmanager && vagrant plugin install vagrant-vmware-fusion`
+
 
 VMs are managed using Vagrant and configured by Ansible.
 * [Terraform](https://www.terraform.io) `brew cask install terraform`
