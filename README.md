@@ -35,14 +35,19 @@ Host calcifer-*
 * [Vagrant](http://vagrantup.com) `brew cask install vagrant`
 * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) and [Vagrant VMware](http://www.vagrantup.com/vmware) plugins `vagrant plugin install vagrant-hostmanager && vagrant plugin install vagrant-vmware-fusion`
 
+#### Production (remote)
 
-VMs are managed using Vagrant and configured by Ansible.
 * [Terraform](https://www.terraform.io) `brew cask install terraform`
 * [A Digital Ocean Personal Access Token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2) (with read/write permissions) in the Digital Ocean account [1]
 * Your public key listed in the Digital Ocean account [1]
 
-#### Setup
 [1] Specifically the `felix@felixfennell.co.uk` account.
+
+### Setup
+
+#### Development (local)
+
+VMs are hosted by VMware, managed using Vagrant and configured with Ansible.
 
 ```shell
 $ git clone git@github.com:fenfe1/satin.git
@@ -58,9 +63,11 @@ $ composer install
 $ logout
 ```
 
-#### Usage
 [1] You will be asked to provide your API user account username and password to create a configuration file.
 
+#### Production (remote)
+
+VMs are hosted on Digital Ocean, managed using Terraform and configured with Ansible.
 
 ```shell
 $ git clone git@github.com:fenfe1/satin.git
@@ -95,6 +102,11 @@ $ logout
 digital_ocean_token = "TOKEN"
 ssh_fingerprint = "FINGERPRINT"
 ```
+
+
+### Usage
+
+#### Development (local)
 
 To demo the People API methods use the provided demo script.
 
