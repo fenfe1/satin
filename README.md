@@ -103,6 +103,7 @@ digital_ocean_token = "TOKEN"
 ssh_fingerprint = "FINGERPRINT"
 ```
 
+[2] You will be asked to provide your API user account username and password to create a configuration file.
 
 ### Usage
 
@@ -112,6 +113,17 @@ To demo the People API methods use the provided demo script.
 
 ```shell
 $ ssh calcifer-satin-dev-node1
+$ cd /app/src
+
+$ php satin.php
+
+$ logout
+```
+
+#### Production (remote)
+
+```shell
+$ ssh calcifer-satin-prod-node1.calcifer.co
 $ cd /app/src
 
 $ php satin.php
