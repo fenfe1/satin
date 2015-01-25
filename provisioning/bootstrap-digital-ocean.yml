@@ -1,0 +1,8 @@
+---
+# Bootstraps a VM for configuration by ansible - this only needs to be run once per host
+
+- name: setup droplets ready for ansible
+  hosts: calcifer-digital-ocean
+  remote_user: root
+  roles:
+  - bootstrap-digitalocean

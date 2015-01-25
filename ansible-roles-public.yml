@@ -5,6 +5,10 @@
     name: bootstrap-vagrant
     version: v1.0.0
 -
+    src: https://github.com/antarctica/ansible-bootstrap-digitalocean
+    name: bootstrap-digitalocean
+    version: v0.1.0
+-
     src: https://github.com/antarctica/ansible-core-public
     name: core
     version: v0.6.0
@@ -12,6 +16,10 @@
     src: https://github.com/antarctica/ansible-php
     name: php
     version: v0.2.5
+-
+    src: https://github.com/antarctica/ansible-git
+    name: git
+    version: v0.1.3
 -
     src: https://github.com/antarctica/ansible-composer
     name: composer

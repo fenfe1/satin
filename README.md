@@ -77,7 +77,16 @@ DNS changes are currently manual, use the [Digital Ocean control panel](https://
  
 * An `A` record for `calcifer-statin-prod-web1.calcifer.co` set to the value of the `calcifer-satin-prod-node1-ip-v4-address`  Terraform output.
 
+```shell
+$ ansible-playbook -i provisioning/production provisioning/bootstrap-digital-ocean.yml
+$ ansible-playbook -i provisioning/production provisioning/site-prod.yml  ([2])
 
+$ ssh calcifer-satin-prod-node1.calcifer.co
+$ cd /app
+
+$ composer install
+
+$ logout
 ```
 
 [1] This file should be populated with your Digital Ocean Personal Access Token and the fingerprint of your SSH public key, using `ssh-keygen -lf ~/.ssh/id_rsa.pub | awk '{print $2}' | pbcopy`, as per this example.

@@ -13,3 +13,5 @@ provisioning/roles/bootstrap-vagrant
 .terraform
 terraform.tfstate
 terraform.tfvars
+provisioning/roles/bootstrap-digitalocean
+provisioning/roles/git

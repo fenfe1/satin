@@ -1,0 +1,15 @@
+# This is an Ansible inventory file. It inherits from /etc/ansible/hosts if it exists
+# It organises hosts/nodes into logical groups which can then be used in playbooks
+
+# This inventory is for the 'production' environment
+
+# It is best practice is group hosts by location and purpose like so:
+
+[calcifer-digital-ocean]
+calcifer-satin-prod-node1.calcifer.co
+
+[nodes:children]
+calcifer-digital-ocean
+
+[all-servers:children]
+nodes
