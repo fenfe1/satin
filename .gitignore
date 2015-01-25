@@ -10,3 +10,6 @@ composer.lock
 storage/api_token.json
 provisioning/local-setup.sh
 provisioning/roles/bootstrap-vagrant
+.terraform
+terraform.tfstate
+terraform.tfvars
