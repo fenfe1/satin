@@ -7,3 +7,17 @@
   sudo: yes
   roles:
     - composer
+
+- name: setup application
+  hosts: nodes
+  remote_user: app
+  vars_prompt:
+  - name: "app_api_username"
+    prompt: "Enter API username"
+    private: yes
+  - name: "app_api_password"
+    prompt: "Enter API password"
+    private: yes
+  tasks:
+  - name: create credentials file
+    template: src=templates/credentials_file.json.j2 dest=/app/.secret_credentials.json

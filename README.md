@@ -46,7 +46,7 @@ $ git clone git@github.com:fenfe1/satin.git
 $ satin/provisioning/local_setup.sh satin
 
 $ cd satin
-$ vagrant up
+$ vagrant up  ([1])
 
 $ ssh calcifer-satin-dev-node1
 $ cd /app
@@ -56,14 +56,10 @@ $ logout
 ```
 
 #### Usage
+[1] You will be asked to provide your API user account username and password to create a configuration file.
 
-Create a `.secret_credentials.json` file in `/` and populate with your API user account credentials.
 
-```json
-{
-    "username": "USERNAME",
-    "password": "PASSWORD"
-}
+
 ```
 
 To demo the People API methods use the provided demo script.
